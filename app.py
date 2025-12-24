@@ -48,7 +48,7 @@ st.markdown(
     }}
 
     /* Button Styling */
-    div.stButton > button:first-child {{
+    div.stButton > button:first-child {
         background-color: #6395EE !important;
         color: black !important;
         font-size: 20px !important; 
@@ -59,14 +59,14 @@ st.markdown(
         border: 2px solid black !important;
         transition: all 0.2s ease;
         text-decoration: none !important;
-    }}
+    }
 
     /* Center the button container */
-    div.stButton {{
+    div.stButton {
         text-align: center;
         padding-top: 20px;
         padding-bottom: 20px;
-    }}
+    }
 
     /* Navy Blue Border and Glow when clicked */
     div.stButton > button:first-child:active {{
@@ -1487,6 +1487,7 @@ else:
             </p>
         </div>
     """, unsafe_allow_html=True)
+
 
 
 
