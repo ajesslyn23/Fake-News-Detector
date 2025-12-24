@@ -993,7 +993,7 @@ def plot_nearest_neighbor_similarity(raw_text, tfidf_vectorizer, train_df, top_n
 # -------------
 st.markdown("""
     <style>
-    /* Radio Button Labels ("Paste text", etc.) */
+    /* Radio Button Labels */
     div[data-testid="stRadio"] label p {
         font-size: 20px !important;
     }
@@ -1004,19 +1004,35 @@ st.markdown("""
         font-weight: 600 !important;
     }
 
-    /* SPECIFIC target for the Text Area label to ensure it is 20px */
-    div[data-testid="stTextArea"] label p {
-        font-size: 20px !important;
-    }
-
-    /* Text Area Content (The text typed inside) */
+    /* Text Area Content */
     .stTextArea textarea {
         font-size: 20px !important;
+        background-color: white !important;
+        color: black !important;
+        border: 2px solid #6395EE !important;
+        border-radius: 10px !important;
     }
 
-    /* File Uploader text */
-    div[data-testid="stFileUploader"] section {
-        font-size: 20px !important;
+    /* Centering the button container */
+    div.stButton {
+        text-align: center;
+    }
+
+    /* Predict Button Custom Styling */
+    div.stButton > button:first-child {
+        background-color: #6395EE !important;
+        color: black !important;
+        font-size: 22px !important; 
+        font-weight: bold !important;
+        height: 60px !important;  
+        border-radius: 10px !important;
+        border: 2px solid black !important;
+        transition: all 0.3s ease;
+    }
+    
+    div.stButton > button:first-child:hover {
+        background-color: #4A80D4 !important;
+        transform: scale(1.02);
     }
     </style>
 """, unsafe_allow_html=True)
@@ -1062,13 +1078,20 @@ elif input_option == "Upload .txt file":
         raw_text = st.text_area("Paste article text here:", height=250)
 
 
-# Prediction Button
-if st.button("Predict") and raw_text.strip() != "":
+col1, col2, col3 = st.columns([1, 1, 1])
 
+with col2:
+    # 2. Place the button in the middle column and use container width
+    # This aligns it with your CSS width while keeping it centered
+    predict_pressed = st.button("Predict", use_container_width=True)
+
+# 3. Check logic using the variable
+if predict_pressed and raw_text.strip() != "":
 
     with st.spinner("Processing... Please Wait"):
         time.sleep(1.5)
 
+    # Apply your Tab Styles
     st.markdown("""
         <style>
         /* Center and wrap tabs */
@@ -1080,13 +1103,11 @@ if st.button("Predict") and raw_text.strip() != "":
             margin-top: 30px;
             margin-bottom: 50px;
         }
-
-        /* Apply font size to all descendants of button */
+        /* ... rest of your Tab CSS ... */
         div[data-testid="stTabs"] button * {
             font-size: 20px !important;
             font-weight: bold !important;
         }
-
         div[data-testid="stTabs"] button {
             color: white !important;
             background-color: #cc10a6 !important;
@@ -1095,18 +1116,15 @@ if st.button("Predict") and raw_text.strip() != "":
             border: none !important;
             transition: 0.3s;
         }
-
         div[data-testid="stTabs"] button:hover {
             background-color: #800066 !important;
         }
-
         div[data-testid="stTabs"] button[aria-selected="true"] {
             background-color: #cc1010 !important;
             color: #ffffff !important;
         }
         </style>
     """, unsafe_allow_html=True)
-
 
 
     # ---------------
@@ -1487,8 +1505,4 @@ else:
             </p>
         </div>
     """, unsafe_allow_html=True)
-
-
-
-
 
