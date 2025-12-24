@@ -57,10 +57,15 @@ st.markdown(
         width: 250px !important;  
         border-radius: 10px !important;
         border: 2px solid black !important;
-        margin: auto;
-        display: block;
         transition: all 0.2s ease;
         text-decoration: none !important;
+    }}
+
+    /* Center the button container */
+    div.stButton {{
+        text-align: center;
+        padding-top: 20px;
+        padding-bottom: 20px;
     }}
 
     /* Navy Blue Border and Glow when clicked */
@@ -102,7 +107,6 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
-
 
 # ------------------------------------------------
 # Load Paths and Model + Preprocessors + Datasets
@@ -1483,5 +1487,6 @@ else:
             </p>
         </div>
     """, unsafe_allow_html=True)
+
 
 
