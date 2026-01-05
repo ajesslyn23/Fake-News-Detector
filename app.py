@@ -584,8 +584,8 @@ def plot_sentiment_gauge(sentiment_score):
             tickfont=dict(size=18) 
         ),
         yaxis=dict(visible=False),
-        height=220,
-        margin=dict(l=50, r=50, t=80, b=50),
+        height=190,
+        margin=dict(l=80, r=80, t=70, b=40),
         showlegend=False,
         plot_bgcolor='rgba(0,0,0,0)',
         autosize=True
@@ -1505,4 +1505,5 @@ else:
             </p>
         </div>
     """, unsafe_allow_html=True)
+
 
